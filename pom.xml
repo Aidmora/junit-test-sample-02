@@ -12,10 +12,10 @@
 
     <groupId>ec.edu.epn</groupId>
     <artifactId>cake-service</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+        <version>0.0.1-SNAPSHOT</version>
 
     <properties>
-        <java.version>11</java.version>
+        <java.version>17</java.version>
         <spring-cloud.version>2024.0.1</spring-cloud.version>
         <springdoc-openapi-starter-webmvc-ui.version>2.7.0</springdoc-openapi-starter-webmvc-ui.version>
         <hibernate-validator.version>8.0.2.Final</hibernate-validator.version>
