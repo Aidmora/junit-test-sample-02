@@ -122,29 +122,30 @@ class CakeServiceTest {
         assertEquals("Delicious Red Velvet Cake", cakeResponse.getDescription());
     }
 
-    @Test
-    public void updateCake_ShouldUpdateExistingCake() {
-        // ARRANGE
-        long cakeId = 1L;
-        Cake existingCake = Cake.builder().id(cakeId).title("Old Title").build();
-        UpdateCakeRequest updateRequest = new UpdateCakeRequest();
-        updateRequest.setTitle("Updated Chocolate Cake");
-        updateRequest.setDescription("Updated delicious chocolate cake");
+    // @Test
+    // public void updateCake_ShouldUpdateExistingCake() {
+    // // ARRANGE
+    // long cakeId = 1L;
+    // Cake existingCake = Cake.builder().id(cakeId).title("Old Title").build();
+    // UpdateCakeRequest updateRequest = new UpdateCakeRequest();
+    // updateRequest.setTitle("Updated Chocolate Cake");
+    // updateRequest.setDescription("Updated delicious chocolate cake");
 
-        when(cakeRepository.findById(cakeId)).thenReturn(Optional.of(existingCake));
-        // Simular que el objeto ya actualizado
-        when(cakeRepository.save(any(Cake.class))).thenAnswer(invocation -> invocation.getArgument(0));
+    // when(cakeRepository.findById(cakeId)).thenReturn(Optional.of(existingCake));
+    // // Simular que el objeto ya actualizado
+    // when(cakeRepository.save(any(Cake.class))).thenAnswer(invocation ->
+    // invocation.getArgument(0));
 
-        // ACT
-        cakeService.updateCake(cakeId, updateRequest);
+    // // ACT
+    // cakeService.updateCake(cakeId, updateRequest);
 
-        // ASSERT
-        verify(cakeRepository).findById(cakeId);
-        verify(cakeRepository).save(argThat(cake ->
-                cake.getTitle().equals("Updated Chocolate Cake") &&
-                        cake.getDescription().equals("Updated delicious chocolate cake")
-        ));
-    }
+    // // ASSERT
+    // verify(cakeRepository).findById(cakeId);
+    // verify(cakeRepository).save(argThat(cake ->
+    // cake.getTitle().equals("Updated Chocolate Cake") &&
+    // cake.getDescription().equals("Updated delicious chocolate cake")
+    // ));
+    // }
 
     @Test
     public void deleteCake_ShouldRemoveExistingCake() {

@@ -59,14 +59,14 @@ public class CakeController {
         return cake;
     }
 
-    @PutMapping(path = "/{id}", consumes = APPLICATION_JSON_VALUE)
-    public ResponseEntity<Void> updateCake(@PathVariable long id, @RequestBody UpdateCakeRequest updateCakeRequest) {
+    @PutMapping(path = "/{id}", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
+    public ResponseEntity<CakeResponse> updateCake(@PathVariable long id, @RequestBody UpdateCakeRequest updateCakeRequest) {
         log.info("updating cake with id {}: {}", id, updateCakeRequest);
 
-        cakeService.updateCake(id, updateCakeRequest);
+        CakeResponse updated = cakeService.updateCake(id, updateCakeRequest);
 
         log.info("cake updated, cake id {}", id);
-        return ResponseEntity.status(NO_CONTENT).build();
+        return ResponseEntity.ok(updated);
     }
 
     @DeleteMapping(path = "/{id}")
